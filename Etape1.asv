@@ -110,11 +110,10 @@ fe=44100;
  
  %On choisit la portion du signal à bruiter ici
 
-signal=mozart(1:length(mozart)/4);
-sortie=fct_bruitBlancCentre(signal,'BruitTonal',fe,5);
+signal=mozart(
+sortie=fct_bruitBlancCentre(mozart,'BruitBlanc',fe,5);
 
-soundsc(sortie,fe);
-
+soundsc(sortie);
 
 %explication de la fonction randn... Tirage aléatoire de gaussienne prend
 %en paramètre (ligne, Colonne). De base écart entre 3 et -3 ; si on veut
@@ -132,9 +131,6 @@ soundsc(sortie,fe);
 %blanc par exemple).
 
 % Pour calculer la somme de vecteur ligne au carré, on fait signal*transposée de signal 
-
-% On doit ici aussi faire les plots des signaux bruités, on voit bien le
-% bruit qui n'apparait pas forcemment facilement à l'oreille.
 
 
 
