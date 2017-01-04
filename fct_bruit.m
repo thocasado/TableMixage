@@ -1,4 +1,4 @@
-function sortie = fct_bruitBlancCentre(signal,type,fe, RSBdb)
+function sortie = fct_bruit(signal,type,fe, RSBdb)
 %RSBdb correspond aux valeurs de Db données dans le sujet donc on le
 %connait.
 

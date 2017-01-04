@@ -111,7 +111,7 @@ fe=44100;
  %On choisit la portion du signal à bruiter ici
 
 signal=mozart(1:length(mozart)/4);
-sortie=fct_bruitBlancCentre(signal,'BruitTonal',fe,5);
+sortie=fct_bruit(signal,'BruitBlanc',fe,1);
 
 soundsc(sortie,fe);
 
@@ -138,4 +138,39 @@ soundsc(sortie,fe);
 
 
 
+%% Etape 4
+fe=44100;
+tau=1;
+g=0.6;
+M=15;
 
+k0=floor(tau*fe);
+%k0=4;
+H=fonctionDeTransfert1(g,M,k0);
+subplot(2,1,1)
+freqz(H,1,100)
+subplot(2,1,2)
+%zplane(H,1)
+
+y=filter(H,1,mozart); % Optimiser en virant les zeros de H
+soundsc(y,fe);
+
+%Le faire avec la technique du prof en virant les zeros !!! 
+
+%% Etape 5
+
+fe=44100;
+tau=1;
+g=0.6;
+M=15;
+
+k0=floor(tau*fe);
+%k0=4;
+H=fonctionDeTransfert1(g,M,k0);
+subplot(2,1,1)
+freqz(1,H,100)
+subplot(2,1,2)
+%zplane(1,H)
+figure,
+y=filter(1,H,mozart); % Optimiser en virant les zeros de H
+%soundsc(y,fe);
