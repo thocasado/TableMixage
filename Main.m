@@ -80,18 +80,18 @@ E=fct_superposition(D,Instru5,5,fe);
 F=fct_superposition(E,Instru6,6,fe);
 %soundsc(F,fe);
 
-%% Etape 2 :Fadind In et Fading Out
+%% Etape 2 : Fadind In et Fading Out
 clear all;
 close all; 
 clc;
 
 load('mozart.mat');
 fe=44100;
-
 %%Fading (Linéaire)
 
-%soundsc(fct_fadingIn(mozart,10,fe),fe);
-%soundsc(fct_fadingOut(mozart,10,fe),fe);
+y1=fct_fadingIn(mozart,10,fe);
+y2=fct_fadingOut(mozart,10,fe);
+
 
 % Un fading (in/out) correspond à une augmentatio ou baisse de l'intensité
 % sonore du signal, on a donc moduler le signal selon un vecteur linéaire
@@ -150,10 +150,10 @@ H=fonctionDeTransfert1(g,M,k0);
 subplot(2,1,1)
 freqz(H,1,100)
 subplot(2,1,2)
-%zplane(H,1)
+zplane(H,1)
 
 y=filter(H,1,mozart); % Optimiser en virant les zeros de H
-soundsc(y,fe);
+%soundsc(y,fe);
 
 %Le faire avec la technique du prof en virant les zeros !!! 
 
