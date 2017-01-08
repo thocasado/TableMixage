@@ -17,9 +17,6 @@ elseif type == 'BruitBlanc'
     bruit=randn(1,length(signal));%On définit bruitBase
     
     
-    %for i=1:length(signal)
-        %sortie(i)=sortie(i)+moyenne+varBruit*randn(1)
-    %end
 else
     bruit=0;
     %retourner erreur
@@ -30,5 +27,4 @@ a=sqrt((Ps/Pb)*10^(-RSBdb/10));%on calcule le coefficient a
 
 sortie=TrSignal+a*bruit;
         
-
 end

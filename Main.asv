@@ -111,24 +111,15 @@ y2=fct_fadingOut(mozart,10,fe);
  %On choisit la portion du signal à bruiter ici 
 portion=(1:2*10^5);
 signal=mozart(portion);
-sortie=fct_bruit(signal,'BruitTonal',fe,0);%'BruiBlanc' pour bruit Blanc Gaussien, 'BruitTonal' pour Bruit tonal
+sortie=fct_bruit(signal,'BruitBlanc',fe,5);%'BruiBlanc' pour bruit Blanc Gaussien, 'BruitTonal' pour Bruit tonal
 
-
-% subplot(2,1,1)
-% plot(portion,signal)
-% title('signal non bruité');
-% subplot(2,1,2)
-% plot(portion,sortie)
-% title('signal bruité');
-% soundsc(sortie,fe);
 
 subplot(2,1,1)
-spectrogram(signal)
-title('signal non bruité');
+plot(portion,signal)
+title('signal non bruité')
 subplot(2,1,2)
-spectrogram(sortie)
-title('signal bruité');
-soundsc(sortie,fe);
+plot(portion,sortie)
+%soundsc(sortie,fe);
 
 
 %explication de la fonction randn... Tirage aléatoire de gaussienne prend
